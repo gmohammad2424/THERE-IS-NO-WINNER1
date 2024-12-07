@@ -4928,7 +4928,7 @@ function generateRemark(index, port, address, cleanIPs, protocol, configType) {
   let addressType;
   const type = configType ? ` ${configType}` : "";
   cleanIPs.includes(address) ? addressType = "Clean IP" : addressType = isDomain(address) ? "Domain" : isIPv4(address) ? "IPv4" : isIPv6(address) ? "IPv6" : "";
-  return `\u{1F4A6} ${index} - ${protocol}${type} - ${addressType} : ${port}`;
+  return `${index} - ${protocol}${type} - ${addressType} : ${port}`;
 }
 function isDomain(address) {
   const domainPattern = /^(?!\-)(?:[A-Za-z0-9\-]{1,63}\.?)+[A-Za-z]{2,}$/;
@@ -5206,7 +5206,7 @@ function renderHomePage(proxySettings, hostName, isPassSet) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Panel ${panelVersion}</title>
+        <title>MGH Panel ${panelVersion}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <title>Collapsible Sections</title>
@@ -5498,7 +5498,7 @@ function renderHomePage(proxySettings, hostName, isPassSet) {
         </style>
     </head>
     <body>
-        <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> \u{1F4A6}</h1>
+        <h1>MGH Panel <span style="font-size: smaller;">${panelVersion}</span> </h1>
         <div class="form-container">
             <form id="configForm">
                 <details open>
@@ -6247,7 +6247,7 @@ function renderHomePage(proxySettings, hostName, isPassSet) {
                 try {
                     document.body.style.cursor = 'wait';
                     const refreshButtonVal = refreshBtn.innerHTML;
-                    refreshBtn.innerHTML = '\u231B Loading...';
+                    refreshBtn.innerHTML = ' Loading...';
 
                     const response = await fetch('/panel', {
                         method: 'POST',
@@ -6258,12 +6258,12 @@ function renderHomePage(proxySettings, hostName, isPassSet) {
                     document.body.style.cursor = 'default';
                     refreshBtn.innerHTML = refreshButtonVal;
                     if (response.ok) {
-                        alert('\u2705 Panel settings reset to default successfully! \u{1F60E}');
+                        alert(' Panel settings reset to default successfully! ');
                         window.location.reload(true);
                     } else {
                         const errorMessage = await response.text();
                         console.error(errorMessage, response.status);
-                        alert('\u26A0\uFE0F An error occured, Please try again!\\n\u26D4 ' + errorMessage);
+                        alert('\u26A0\uFE0F An error occured, Please try again!\\n ' + errorMessage);
                     }         
                 } catch (error) {
                     console.error('Error:', error);
@@ -6698,7 +6698,7 @@ function renderLoginPage() {
     </head>
     <body>
         <div class="container">
-            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> \u{1F4A6}</h1>
+            <h1>MGH Panel <span style="font-size: smaller;">${panelVersion}</span> </h1>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
@@ -6780,7 +6780,7 @@ function renderErrorPage(message2, error, refer) {
     </head>
     <body>
         <div id="error-container">
-            <h1>BPB Panel <span style="font-size: smaller;">${panelVersion}</span> \u{1F4A6}</h1>
+            <h1>MGH Panel <span style="font-size: smaller;">${panelVersion}</span> </h1>
             <div id="error-message">
                 <h2>${message2} ${refer ? 'Please try again or refer to <a href="https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/README.md">documents</a>' : ""}
                 </h2>
